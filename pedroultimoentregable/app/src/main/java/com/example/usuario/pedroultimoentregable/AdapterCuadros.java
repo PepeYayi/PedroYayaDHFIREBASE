@@ -70,7 +70,7 @@ public class AdapterCuadros extends RecyclerView.Adapter {
 
 
     public interface Notificable{
-        void abrirDetalleReceta(List<Cuadro> listaDeCuadros, Integer posicionCuadro);
+        void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro);
     }
 
 

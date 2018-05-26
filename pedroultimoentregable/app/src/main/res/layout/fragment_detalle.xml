@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragmentDetalle">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+
+
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/imagenDetalle"
+       android:src="@drawable/ata"/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tituloDetalle"
+            android:text="Atahualpa Yupanqui"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorNegro"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:id="@+id/descripcionDetalle"
+            android:text="Atahualpa Yupanqui fue un poeta nacido en pergamino en el anio 1030 asdasdasdasasd as das dasdas das das d sa dsaad adas dasds  asdasdasd a da sdas d asd a da sd asd as das d sad asd as das das das dsa d sad as das dsa d a d"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorGris3"
+            android:padding="10dp"
+
+            />
+
+
+
+    </LinearLayout>
+</ScrollView>

@@ -6,7 +6,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements AdapterCuadros.Notificable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,28 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
-        
+
+
+    }
+
+    @Override
+    public void abrirDetalleReceta(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
+        Cuadro cuadro = listaDeCuadros.get(posicionCuadro);
+        String titulo = cuadro.getTitulo();
+        String descripcion = cuadro.getDescripcion();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("titulo", titulo);
+        bundle.putString("descripcion", descripcion);
+
+        FragmentDetalle fragmentDetalle = new FragmentDetalle();
+        fragmentDetalle.setArguments(bundle);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.containerMainFragment, fragmentDetalle);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
     }
 }

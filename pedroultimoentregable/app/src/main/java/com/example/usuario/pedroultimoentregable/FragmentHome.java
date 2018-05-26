@@ -4,6 +4,7 @@ package com.example.usuario.pedroultimoentregable;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,11 @@ import java.util.List;
  */
 public class FragmentHome extends Fragment {
 
+
     private AdapterCuadros adapterCuadros;
     private AdapterCuadros.Notificable notificable;
+
+
 
     public FragmentHome() {
         // Required empty public constructor
@@ -34,14 +38,14 @@ public class FragmentHome extends Fragment {
 
         RecyclerView recyclerViewCuadros = view.findViewById(R.id.recyclerViewPrincipal);
         recyclerViewCuadros.setHasFixedSize(true);
+        recyclerViewCuadros.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
         adapterCuadros = new AdapterCuadros(crearListaCuadros(), new AdapterCuadros.Notificable() {
             @Override
-            public void abrirDetalleReceta(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
-                notificable.abrirDetalleReceta(listaDeCuadros, posicionCuadro);
+            public void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
+                notificable.abrirDetalleCuadro(listaDeCuadros, posicionCuadro);
             }
         });
-
 
         recyclerViewCuadros.setAdapter(adapterCuadros);
 
