@@ -6,5 +6,13 @@
     <color name="colorNegro">#000000</color>
     <color name="colorBlanco">#ffffff</color>
     <color name="colorAmarillo">#FFF000</color>
+    <color name="colorGris">#D8D8D8</color>
+    <color name="colorGris2">#BDBDBD</color>
+    <color name="colorGris3">#424242</color>
+
+
+
+
+
 
 </resources>
