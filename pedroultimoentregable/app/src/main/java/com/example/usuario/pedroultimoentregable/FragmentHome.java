@@ -1,6 +1,7 @@
 package com.example.usuario.pedroultimoentregable;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -34,10 +35,23 @@ public class FragmentHome extends Fragment {
         RecyclerView recyclerViewCuadros = view.findViewById(R.id.recyclerViewPrincipal);
         recyclerViewCuadros.setHasFixedSize(true);
 
-        adapterCuadros = new AdapterCuadros(crearListaCuadros(), )
+        adapterCuadros = new AdapterCuadros(crearListaCuadros(), new AdapterCuadros.Notificable() {
+            @Override
+            public void abrirDetalleReceta(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
+                notificable.abrirDetalleReceta(listaDeCuadros, posicionCuadro);
+            }
+        });
 
+
+        recyclerViewCuadros.setAdapter(adapterCuadros);
 
         return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        notificable = (AdapterCuadros.Notificable) context;
     }
 
 

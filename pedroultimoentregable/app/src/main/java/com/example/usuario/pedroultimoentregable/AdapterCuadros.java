@@ -20,7 +20,7 @@ public class AdapterCuadros extends RecyclerView.Adapter {
         this.listaDeCuadros = listaDeCuadros;
         this.notificable = notificable;
     }
-    
+
 
     @NonNull
     @Override
