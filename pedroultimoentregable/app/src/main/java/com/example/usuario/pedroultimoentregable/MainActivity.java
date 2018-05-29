@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -27,8 +28,11 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
 
     }
 
+
+
+
     @Override
-    public void abrirDetalleReceta(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
+    public void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
         Cuadro cuadro = listaDeCuadros.get(posicionCuadro);
         String titulo = cuadro.getTitulo();
         String descripcion = cuadro.getDescripcion();

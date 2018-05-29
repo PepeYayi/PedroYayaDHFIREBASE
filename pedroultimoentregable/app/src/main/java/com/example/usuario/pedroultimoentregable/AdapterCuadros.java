@@ -53,13 +53,23 @@ public class AdapterCuadros extends RecyclerView.Adapter {
 
 
 
+
         public ViewHolderCuadros(View itemView) {
             super(itemView);
             imagen = itemView.findViewById(R.id.imagenCelda);
             titulo = itemView.findViewById(R.id.tituloCelda);
             descripcion = itemView.findViewById(R.id.descripcionCelda);
 
+            imagen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    notificable.abrirDetalleCuadro(listaDeCuadros,getAdapterPosition());
+                }
+            });
+
         }
+
+
 
         public void setearDatos(Cuadro cuadro){
             imagen.setImageResource(cuadro.getImagen());
