@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "350516899787",
+    "firebase_url": "https://entregable-firebase-yaya.firebaseio.com",
+    "project_id": "entregable-firebase-yaya",
+    "storage_bucket": "entregable-firebase-yaya.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350516899787:android:2eddc0b1803768cd",
+        "android_client_info": {
+          "package_name": "com.usuario.pedroultimoentregable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350516899787-ua8hovjinja5fbap9n0lo85k4jgl9ab1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.usuario.pedroultimoentregable",
+            "certificate_hash": "3aed8d376576a1bca7ba82dcaa512adc49c2699d"
+          }
+        },
+        {
+          "client_id": "350516899787-102v0sge7c7lik2hnstvhck0ca8u8v5o.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "350516899787-102v0sge7c7lik2hnstvhck0ca8u8v5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjZ6eL48zYYX8sIQ_NIG_c-9G4MZxMPKA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350516899787-102v0sge7c7lik2hnstvhck0ca8u8v5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
