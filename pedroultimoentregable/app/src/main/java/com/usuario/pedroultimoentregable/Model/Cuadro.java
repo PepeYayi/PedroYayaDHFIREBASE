@@ -16,6 +16,20 @@ public class Cuadro {
         this.artistId = artistId;
     }
 
+    public Cuadro() {
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setArtistId(String artistId) {
+        this.artistId = artistId;
+    }
 
     public String getImage() {
         return image;

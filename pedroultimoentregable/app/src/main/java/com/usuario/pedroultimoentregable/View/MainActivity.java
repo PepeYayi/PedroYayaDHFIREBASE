@@ -16,6 +16,8 @@ import com.facebook.CallbackManager;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.usuario.pedroultimoentregable.DAO.DAOInternet;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
 
 import java.util.List;
@@ -34,6 +36,17 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DAOInternet daoInternet = new DAOInternet();
+
+        Cuadro cuadro1 = new Cuadro("cuadro1", "alo","asasdas");
+        Cuadro cuadro2 = new Cuadro("cuadsro1", "alasdo","asasasddas");
+
+        daoInternet.escribirEnLaBase(cuadro1);
+        daoInternet.escribirEnLaBase(cuadro2);
+
+        daoInternet.leerDatabase();
+
 
 
 
