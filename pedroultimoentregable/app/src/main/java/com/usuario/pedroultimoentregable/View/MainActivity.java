@@ -20,7 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements AdapterCuadros.Notificable {
 
 
-
+    // METER LISTENER AL BOTON NUEVO EN MAINACT PARA IR A LA ACT LOGIN Y VER SI ANDA EL LOGIN DE FIREBASE
 
 
     private FirebaseAuth.AuthStateListener mAuthListener;
