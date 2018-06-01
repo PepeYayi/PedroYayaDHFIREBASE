@@ -32,6 +32,8 @@ public class AdapterCuadros extends RecyclerView.Adapter {
         ViewHolderCuadros viewHolderCuadros = new ViewHolderCuadros(viewCelda);
 
 
+
+
         return viewHolderCuadros;
     }
 
@@ -83,6 +85,13 @@ public class AdapterCuadros extends RecyclerView.Adapter {
 
     public interface Notificable{
         void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro);
+    }
+
+
+
+    public void cargarCuadros(List<Cuadro> listaDeCuadrosACargar){
+        listaDeCuadros.addAll(listaDeCuadrosACargar);
+        notifyDataSetChanged();
     }
 
 

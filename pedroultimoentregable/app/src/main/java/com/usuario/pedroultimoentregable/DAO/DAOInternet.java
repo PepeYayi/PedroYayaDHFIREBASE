@@ -1,50 +1,61 @@
 package com.usuario.pedroultimoentregable.DAO;
 
-import android.content.res.AssetManager;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import android.util.Log;
+
+import com.usuario.pedroultimoentregable.Model.ContenedorDeCuadros;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
+import com.usuario.pedroultimoentregable.Utils.ResultListener;
 
-/**
- * Created by DH on 30/5/2018.
- */
+import java.util.List;
 
-public class DAOInternet {
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-        private FirebaseDatabase database;
+public class DAOinternet {
 
-    public DAOInternet() {
-        database = FirebaseDatabase.getInstance();
+
+    private Retrofit retrofit;
+    private ServiceCuadro service;
+    private static final String BASE_URL = "https://api.myjson.com/bins/x858r";
+
+
+    public DAOinternet() {
+
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        retrofit = builder.client(httpClient.build()).build();
+
+        service = retrofit.create(ServiceCuadro.class);
+
     }
 
-    public void escribirEnLaBase(Cuadro cuadro){
+    public void obtenerCuadrosDeInternetAsincronico(final ResultListener<List<Cuadro>> escuchadorDelControlador) {
 
-        database.getReference().child("Cuadros")
-                .child(cuadro.getName())
-                .setValue(cuadro);
-    }
-
-// push es solo para crear ids unicos. setValue es para escribir en la base.
-
- // El single es para leer una sola vez la base, y el otro es el valueeventlistener si aguien cambia algo se ejecuta.
-    public void leerDatabase(){
-        database.getReference().child("Cuadros").addListenerForSingleValueEvent(new ValueEventListener() {
+        service.getCuadros().enqueue(new Callback<ContenedorDeCuadros>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onResponse(Call<ContenedorDeCuadros> call, Response<ContenedorDeCuadros> response) {
 
-                for (DataSnapshot jsonCuadro : dataSnapshot.getChildren()) {
-                    jsonCuadro.getValue(Cuadro.class);
-                    // preguntar como guardo esto para pasarlo a la vista.
-                }
+                ContenedorDeCuadros contenedorDeCuadros = response.body();
+                List<Cuadro> listaCuadros = contenedorDeCuadros.getListaDeCuadros();
+                escuchadorDelControlador.finish(listaCuadros);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+            public void onFailure(Call<ContenedorDeCuadros> call, Throwable t) {
+                Log.e("retrofit", "fallo");
             }
         });
+
     }
+
 }
+

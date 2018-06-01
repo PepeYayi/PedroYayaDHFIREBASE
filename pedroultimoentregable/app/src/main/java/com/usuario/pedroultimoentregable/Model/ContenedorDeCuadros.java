@@ -14,6 +14,14 @@ public class ContenedorDeCuadros {
         this.listaDeCuadros = listaDeCuadros;
     }
 
+    public List<Cuadro> getListaDeCuadros() {
+        return listaDeCuadros;
+    }
+
+    public void setListaDeCuadros(List<Cuadro> listaDeCuadros) {
+        this.listaDeCuadros = listaDeCuadros;
+    }
+
     @Override
     public String toString() {
         return "ClaseContenedora{" +

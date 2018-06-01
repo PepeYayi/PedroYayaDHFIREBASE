@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.example.usuario.pedroultimoentregable.R;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
+import com.usuario.pedroultimoentregable.Utils.ResultListener;
+import com.usuario.pedroultimoentregable.controller.ControllerCuadros;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ public class FragmentHome extends Fragment {
 
     private AdapterCuadros adapterCuadros;
     private AdapterCuadros.Notificable notificable;
-
+    private ControllerCuadros controllerCuadros;
 
 
     public FragmentHome() {
@@ -43,14 +45,16 @@ public class FragmentHome extends Fragment {
         recyclerViewCuadros.setHasFixedSize(true);
         recyclerViewCuadros.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
-        adapterCuadros = new AdapterCuadros(crearListaCuadros(), new AdapterCuadros.Notificable() {
+        controllerCuadros = new ControllerCuadros();
+
+        controllerCuadros.obtenerCuadros(new ResultListener<List<Cuadro>>() {
             @Override
-            public void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
-                notificable.abrirDetalleCuadro(listaDeCuadros, posicionCuadro);
+            public void finish(List<Cuadro> resultado) {
+                adapterCuadros.cargarCuadros(resultado);
+
             }
         });
 
-        recyclerViewCuadros.setAdapter(adapterCuadros);
 
         return view;
     }
@@ -62,25 +66,8 @@ public class FragmentHome extends Fragment {
     }
 
 
-    private static List<Cuadro> crearListaCuadros() {
-
-        List<Cuadro> listaCuadros = new ArrayList<>();
-
-        for (int i = 0; i < 2; i++) {
-            listaCuadros.add(new Cuadro("asdasd", "adasda", "oeoeoeoe"));
-            listaCuadros.add(new Cuadro("asdasd", "adasda", "oeoeoeoe"));
-            listaCuadros.add(new Cuadro("asdasd", "adasda", "oeoeoeoe"));
-            listaCuadros.add(new Cuadro("asdasd", "adasda", "oeoeoeoe"));
-            listaCuadros.add(new Cuadro("asdasd", "adasda", "oeoeoeoe"));
-            listaCuadros.add(new Cuadro("asdasd", "adasda", "oeoeoeoe"));
-            listaCuadros.add(new Cuadro("asdasd", "adasda", "oeoeoeoe"));
 
 
-
-        }
-
-        return listaCuadros;
-    }
 
 }
 
