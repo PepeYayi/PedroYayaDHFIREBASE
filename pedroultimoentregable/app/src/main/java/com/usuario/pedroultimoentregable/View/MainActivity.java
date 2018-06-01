@@ -5,8 +5,10 @@ package com.usuario.pedroultimoentregable.View;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -30,11 +32,21 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
     private Button botonLoginActivity;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         DAOfirebase daoInternet = new DAOfirebase();
 

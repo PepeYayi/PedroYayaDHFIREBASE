@@ -4,7 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorGris">
+    android:background="@color/colorGris3">
 
 
 
@@ -12,13 +12,14 @@
         android:layout_width="match_parent"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="3dp"
-        app:cardPreventCornerOverlap="true"
+         app:cardPreventCornerOverlap="true"
         app:cardElevation="4dp"
         android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:background="@color/colorBlanco"
+        android:backgroundTint="@color/Negro"
         android:layout_height="wrap_content">
 
 
@@ -31,7 +32,7 @@
         android:background="@drawable/ata"
         android:layout_marginBottom="14dp"
         android:id="@+id/imagenCelda"
-         />
+          />
 
 
 
@@ -42,7 +43,7 @@
             android:layout_alignTop="@+id/imagenCelda"
             android:text="Atahualpa Yupanqui"
             android:layout_toRightOf="@+id/imagenCelda"
-            android:textColor="@color/colorNegro"
+            android:textColor="@color/colorBlanco"
             android:layout_marginLeft="10dp"
             android:id="@+id/tituloCelda"
             android:textSize="17sp"/>
@@ -52,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cuadro pintado por el reconocido artista uruguayo Emilio Pancito Dulce"
-            android:textColor="@color/colorGris3"
+            android:textColor="@color/colorGris2"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/imagenCelda"
             android:layout_below="@+id/tituloCelda"
