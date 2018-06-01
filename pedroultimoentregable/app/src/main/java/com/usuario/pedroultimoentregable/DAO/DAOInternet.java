@@ -1,6 +1,5 @@
 package com.usuario.pedroultimoentregable.DAO;
 
-
 import android.util.Log;
 
 import com.usuario.pedroultimoentregable.Model.ContenedorDeCuadros;
@@ -58,4 +57,3 @@ public class DAOinternet {
     }
 
 }
-
