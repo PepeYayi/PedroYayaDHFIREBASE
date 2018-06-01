@@ -20,7 +20,7 @@ public class DAOinternet {
 
     private Retrofit retrofit;
     private ServiceCuadro service;
-    private static final String BASE_URL = "https://api.myjson.com/bins/x858r";
+    private static final String BASE_URL = "https://api.myjson.com";
 
 
     public DAOinternet() {
@@ -43,9 +43,7 @@ public class DAOinternet {
             @Override
             public void onResponse(Call<ContenedorDeCuadros> call, Response<ContenedorDeCuadros> response) {
 
-                ContenedorDeCuadros contenedorDeCuadros = response.body();
-                List<Cuadro> listaCuadros = contenedorDeCuadros.getListaDeCuadros();
-                escuchadorDelControlador.finish(listaCuadros);
+                escuchadorDelControlador.finish(response.body().getPaints());
             }
 
             @Override

@@ -41,12 +41,14 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
         setContentView(R.layout.activity_main);
 
 
+        /*
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+*/
 
         DAOfirebase daoInternet = new DAOfirebase();
 

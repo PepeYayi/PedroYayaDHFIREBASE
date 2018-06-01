@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.usuario.pedroultimoentregable.R;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterCuadros extends RecyclerView.Adapter {
@@ -18,8 +19,8 @@ public class AdapterCuadros extends RecyclerView.Adapter {
     private List<Cuadro> listaDeCuadros;
     private Notificable notificable;
 
-    public AdapterCuadros(List<Cuadro> listaDeCuadros, Notificable notificable) {
-        this.listaDeCuadros = listaDeCuadros;
+    public AdapterCuadros( Notificable notificable) {
+        this.listaDeCuadros = new ArrayList<>();
         this.notificable = notificable;
     }
 

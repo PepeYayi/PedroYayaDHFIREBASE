@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 public interface ServiceCuadro {
 
 
-    @GET("")
+    @GET("/bins/x858r")
     Call<ContenedorDeCuadros> getCuadros();
 
 }

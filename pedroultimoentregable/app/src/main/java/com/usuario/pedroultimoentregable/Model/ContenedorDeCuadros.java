@@ -8,24 +8,24 @@ import java.util.List;
 
 public class ContenedorDeCuadros {
 
-    private List<Cuadro> listaDeCuadros;
+    private List<Cuadro> paints;
 
-    public ContenedorDeCuadros(List<Cuadro> listaDeCuadros) {
-        this.listaDeCuadros = listaDeCuadros;
+    public ContenedorDeCuadros(List<Cuadro> paints) {
+        this.paints = paints;
     }
 
-    public List<Cuadro> getListaDeCuadros() {
-        return listaDeCuadros;
+    public List<Cuadro> getPaints() {
+        return paints;
     }
 
-    public void setListaDeCuadros(List<Cuadro> listaDeCuadros) {
-        this.listaDeCuadros = listaDeCuadros;
+    public void setPaints(List<Cuadro> paints) {
+        this.paints = paints;
     }
 
     @Override
     public String toString() {
         return "ClaseContenedora{" +
-                "listaDeCuadros=" + listaDeCuadros +
+                "paints=" + paints +
                 '}';
     }
 }

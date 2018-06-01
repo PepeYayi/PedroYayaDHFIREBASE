@@ -1,5 +1,7 @@
 package com.usuario.pedroultimoentregable.controller;
 
+import android.support.v7.widget.RecyclerView;
+
 import com.usuario.pedroultimoentregable.DAO.DAOinternet;
 import com.usuario.pedroultimoentregable.DAO.ServiceCuadro;
 import com.usuario.pedroultimoentregable.Model.Cuadro;

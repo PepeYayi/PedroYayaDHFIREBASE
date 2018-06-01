@@ -3,6 +3,7 @@ package com.usuario.pedroultimoentregable.View;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,6 +35,27 @@ public class FragmentHome extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        adapterCuadros = new AdapterCuadros(new AdapterCuadros.Notificable() {
+            @Override
+            public void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
+                  // ARMAR VIEWPAGER ETC
+            }
+        });
+        controllerCuadros = new ControllerCuadros();
+        controllerCuadros.obtenerCuadros(new ResultListener<List<Cuadro>>() {
+            @Override
+            public void finish(List<Cuadro> resultado) {
+                adapterCuadros.cargarCuadros(resultado);
+
+            }
+        });}
+
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,13 +69,8 @@ public class FragmentHome extends Fragment {
 
         controllerCuadros = new ControllerCuadros();
 
-        controllerCuadros.obtenerCuadros(new ResultListener<List<Cuadro>>() {
-            @Override
-            public void finish(List<Cuadro> resultado) {
-                adapterCuadros.cargarCuadros(resultado);
+        recyclerViewCuadros.setAdapter(adapterCuadros);
 
-            }
-        });
 
 
         return view;
