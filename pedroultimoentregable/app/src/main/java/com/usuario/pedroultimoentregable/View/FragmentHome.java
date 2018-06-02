@@ -41,8 +41,7 @@ public class FragmentHome extends Fragment {
         adapterCuadros = new AdapterCuadros(new AdapterCuadros.Notificable() {
             @Override
             public void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
-                  // ARMAR VIEWPAGER ETC
-            }
+                    notificable.abrirDetalleCuadro(listaDeCuadros, posicionCuadro);            }
         });
         controllerCuadros = new ControllerCuadros();
         controllerCuadros.obtenerCuadros(new ResultListener<List<Cuadro>>() {

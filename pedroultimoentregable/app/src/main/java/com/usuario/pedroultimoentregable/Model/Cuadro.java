@@ -1,10 +1,12 @@
 package com.usuario.pedroultimoentregable.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by DH on 30/5/2018.
  */
 
-public class Cuadro {
+public class Cuadro implements Serializable {
 
     private String image;
     private String name;

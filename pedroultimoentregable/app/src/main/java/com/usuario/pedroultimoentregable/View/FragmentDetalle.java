@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.usuario.pedroultimoentregable.R;
+import com.usuario.pedroultimoentregable.Model.Cuadro;
 
 
 /**
@@ -17,10 +18,14 @@ import com.example.usuario.pedroultimoentregable.R;
  */
 public class FragmentDetalle extends Fragment {
 
+
+    private static final String ID_CUADRO = "ID_CUADRO";
+
+
     private ImageView imagenDetalle;
     private TextView tituloDetalle;
     private TextView descripcionDetalle;
-
+    private Cuadro cuadro;
 
     public FragmentDetalle() {
         // Required empty public constructor
@@ -41,8 +46,21 @@ public class FragmentDetalle extends Fragment {
 
 
 
+        cuadro = (Cuadro) bundle.getSerializable(ID_CUADRO);
+
+
+
 
         return view;
+    }
+
+    public static FragmentDetalle fabricaFragmentCuadros(Cuadro unCuadro) {
+
+        FragmentDetalle fragmentDetalle = new FragmentDetalle();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(ID_CUADRO, unCuadro);
+        fragmentDetalle.setArguments(bundle);
+        return fragmentDetalle;
     }
 
 }

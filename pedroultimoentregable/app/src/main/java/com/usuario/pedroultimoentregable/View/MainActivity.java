@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.usuario.pedroultimoentregable.DAO.DAOfirebase;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterCuadros.Notificable {
@@ -102,6 +103,9 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
         fragmentTransaction.replace(R.id.containerMainFragment, fragmentDetalle);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+
+
+
 
     }
 
