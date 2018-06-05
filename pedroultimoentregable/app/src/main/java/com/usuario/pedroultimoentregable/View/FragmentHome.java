@@ -47,7 +47,7 @@ public class FragmentHome extends Fragment {
         controllerCuadros.obtenerCuadros(new ResultListener<List<Cuadro>>() {
             @Override
             public void finish(List<Cuadro> resultado) {
-                adapterCuadros.cargarCuadros(resultado);
+                adapterCuadros.setListaDeCuadros(resultado);
 
             }
         });}

@@ -25,8 +25,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tituloDetalle"
+            android:id="@+id/nameArtistDetalle"
             android:text="Atahualpa Yupanqui"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorNegro"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/namePaintingDetalle"
+            android:text="nombre de cuadro"
             android:padding="10dp"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -34,18 +44,60 @@
             />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:id="@+id/descripcionDetalle"
-            android:text="Atahualpa Yupanqui fue un poeta nacido en pergamino en el anio 1030 asdasdasdasasd as das dasdas das das d sa dsaad adas dasds  asdasdasd a da sdas d asd a da sd asd as das d sad asd as das das das dsa d sad as das dsa d a d"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorGris3"
-            android:padding="10dp"
 
-            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Nacionalidad: "
+                android:textSize="20dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"
+                android:id="@+id/nacionalidadDetalle"
+                android:text="Argentina"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Influencia: "
+                android:textSize="20dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"
+                android:id="@+id/influenciaDetalle"
+                android:text="Argentina"
+                />
+
+
+        </LinearLayout>
+
 
 
 

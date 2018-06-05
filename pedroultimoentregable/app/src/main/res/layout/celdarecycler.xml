@@ -24,7 +24,7 @@
 
 
 
-    <TextView
+    <ImageView
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_width="150dp"
@@ -45,7 +45,7 @@
             android:layout_toRightOf="@+id/imagenCelda"
             android:textColor="@color/colorBlanco"
             android:layout_marginLeft="10dp"
-            android:id="@+id/tituloCelda"
+            android:id="@+id/nombreObra"
             android:textSize="17sp"/>
 
     <TextView
@@ -56,8 +56,8 @@
             android:textColor="@color/colorGris2"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/imagenCelda"
-            android:layout_below="@+id/tituloCelda"
-            android:id="@+id/descripcionCelda"
+            android:layout_below="@+id/nombreObra"
+            android:id="@+id/nombreArtista"
             android:textSize="15sp"/>
 
     </RelativeLayout>

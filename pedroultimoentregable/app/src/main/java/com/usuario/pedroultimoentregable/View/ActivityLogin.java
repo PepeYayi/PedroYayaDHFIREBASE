@@ -87,7 +87,10 @@ public class ActivityLogin extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Log.d("facebook", "onAuthStateChanged:signed_out");
+
+                    Intent intent = new Intent(ActivityLogin.this,MainActivity.class);
+                    startActivity(intent);
+
 
 
                 } else {
@@ -108,18 +111,21 @@ public class ActivityLogin extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult) {
 
                 handleFacebookAccessToken(loginResult.getAccessToken());
+                Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
+                startActivity(intent);
             }
 
             @Override
             public void onCancel() {
-
-                // ...
+                Toast.makeText(ActivityLogin.this, "Cancelled request.",
+                        Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(FacebookException error) {
 
-                // ...
+                Toast.makeText(ActivityLogin.this, "Authentication error.",
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -139,7 +145,7 @@ public class ActivityLogin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                        //es aca pepe
+
                             Intent intent = new Intent(ActivityLogin.this,MainActivity.class);
                             startActivity(intent);
 
@@ -163,9 +169,10 @@ public class ActivityLogin extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+
+                            FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(ActivityLogin.this,MainActivity.class);
                             startActivity(intent);
-                            FirebaseUser user = mAuth.getCurrentUser();
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -195,6 +202,8 @@ public class ActivityLogin extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("firebase", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(ActivityLogin.this,MainActivity.class);
+                            startActivity(intent);
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -240,6 +249,9 @@ public class ActivityLogin extends AppCompatActivity {
 
         // Pass the activity result back to the Facebook SDK
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
+        Intent intent = new Intent(ActivityLogin.this,MainActivity.class);
+        startActivity(intent);
+
     }
 
 

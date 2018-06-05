@@ -23,8 +23,11 @@ public class FragmentDetalle extends Fragment {
 
 
     private ImageView imagenDetalle;
-    private TextView tituloDetalle;
-    private TextView descripcionDetalle;
+    private TextView nameArtistDetalle;
+    private TextView namePaintingDetalle;
+    private TextView nacionalidadDetalle;
+    private TextView influenciaDetalle;
+
     private Cuadro cuadro;
 
     public FragmentDetalle() {
@@ -39,8 +42,10 @@ public class FragmentDetalle extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detalle, container, false);
 
         imagenDetalle = view.findViewById(R.id.imagenDetalle);
-        tituloDetalle = view.findViewById(R.id.tituloDetalle);
-        descripcionDetalle = view.findViewById(R.id.descripcionDetalle);
+        nameArtistDetalle = view.findViewById(R.id.nameArtistDetalle);
+        namePaintingDetalle = view.findViewById(R.id.namePaintingDetalle);
+        nacionalidadDetalle = view.findViewById(R.id.nacionalidadDetalle);
+        influenciaDetalle = view.findViewById(R.id.influenciaDetalle);
 
         Bundle bundle = getArguments();
 
@@ -48,6 +53,10 @@ public class FragmentDetalle extends Fragment {
 
         cuadro = (Cuadro) bundle.getSerializable(ID_CUADRO);
 
+        nameArtistDetalle.setText(cuadro.getNamePainting());
+        nacionalidadDetalle.setText(cuadro.getNationality());
+        influenciaDetalle.setText(cuadro.getInfluenced_by());
+        namePaintingDetalle.setText(cuadro.getNamePainting());
 
 
 

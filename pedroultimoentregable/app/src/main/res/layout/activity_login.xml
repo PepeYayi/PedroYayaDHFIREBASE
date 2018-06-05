@@ -12,34 +12,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:background="@color/Negro"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
+        <include layout="@layout/toolbar" />
 
-            ></android.support.v7.widget.Toolbar>
 
         <EditText
+            android:layout_marginTop="50dp"
             android:id="@+id/editTextEmail"
+            android:textColor="@color/colorBlanco"
+            android:textColorHint="@color/colorBlanco"
             android:hint="Email"
+            android:backgroundTint="@color/colorGris2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <EditText
             android:id="@+id/editTextContraseña"
             android:hint="Contraseña"
+            android:textColor="@color/colorBlanco"
+            android:backgroundTint="@color/colorGris2"
+            android:textColorHint="@color/colorBlanco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Button
+            android:layout_marginTop="40dp"
             android:text="Crear Cuenta"
             android:id="@+id/BotonCrearCuenta"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content" />
         <Button
             android:text="Iniciar Sesion"
             android:id="@+id/BotonIniciarSesion"
-            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="200dp"
             android:layout_height="wrap_content" />
 
 

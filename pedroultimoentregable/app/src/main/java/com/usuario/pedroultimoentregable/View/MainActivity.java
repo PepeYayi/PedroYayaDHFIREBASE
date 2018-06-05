@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import com.usuario.pedroultimoentregable.DAO.DAOfirebase;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
+import com.usuario.pedroultimoentregable.Utils.ResultListener;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,20 +28,31 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements AdapterCuadros.Notificable {
 
 
-    // METER LISTENER AL BOTON NUEVO EN MAINACT PARA IR A LA ACT LOGIN Y VER SI ANDA EL LOGIN DE FIREBASE
+
 
 
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
     private Button botonLoginActivity;
     private Toolbar toolbar;
+    private AdapterCuadros adapterCuadros;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        adapterCuadros = new AdapterCuadros(new AdapterCuadros.Notificable() {
+            @Override
+            public void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
+                abrirDetalleCuadro(listaDeCuadros,posicionCuadro);
+            }
+        });
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            Intent intent = new Intent(MainActivity.this, ActivityLogin.class);
+            startActivity(intent);
 
+        }
 
         /*
         toolbar = findViewById(R.id.toolbar);
@@ -53,13 +65,20 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
 
         DAOfirebase daoInternet = new DAOfirebase();
 
-        Cuadro cuadro1 = new Cuadro("cuadro1", "alo","asasdas");
-        Cuadro cuadro2 = new Cuadro("cuadsro1", "alasdo","asasasddas");
+
+        Cuadro cuadro1 = new Cuadro("cuadro1", "alo","asasdas", "adsasd", "asdsad", "asdasd");
+        Cuadro cuadro2 = new Cuadro("cuadro1", "alo","asasdas", "adsasd", "asdsad", "asdasd");
 
         daoInternet.escribirEnLaBase(cuadro1);
         daoInternet.escribirEnLaBase(cuadro2);
 
-        daoInternet.leerDatabase();
+        daoInternet.leerDatabase(new ResultListener<List<Cuadro>>() {
+            @Override
+            public void finish(List<Cuadro> resultado) {
+                adapterCuadros.setListaDeCuadros(resultado);
+            }
+        });
+
 
 
 
@@ -71,15 +90,6 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
         fragmentTransaction.commit();
 
 
-        botonLoginActivity = findViewById(R.id.loginBoton1);
-
-        botonLoginActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ActivityLogin.class);
-                startActivity(intent);
-            }
-        });
 
 
     }
@@ -88,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
     @Override
     public void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
         Cuadro cuadro = listaDeCuadros.get(posicionCuadro);
-        String titulo = cuadro.getName();
+        String titulo = cuadro.getNamePainting();
         String imagen = cuadro.getImage();
 
         Bundle bundle = new Bundle();
@@ -97,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
 
         FragmentDetalle fragmentDetalle = new FragmentDetalle();
         fragmentDetalle.setArguments(bundle);
-
+        // MANDAR EL OBJETO ENTERO PARA RECIBIRLO CON EL SERIALIZABLE DESDE EL FRAGMENT DETALLE
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.containerMainFragment, fragmentDetalle);
