@@ -23,6 +23,9 @@ public class Cuadro implements Serializable {
         this.artistId = artistId;
     }
 
+    public Cuadro(){
+
+    }
 
     public String getImage() {
         return image;

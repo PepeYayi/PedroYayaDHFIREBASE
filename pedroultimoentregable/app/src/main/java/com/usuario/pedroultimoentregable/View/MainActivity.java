@@ -95,9 +95,8 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("CUADRO", cuadro);
-
         FragmentDetalle fragmentDetalle = new FragmentDetalle();
-
+        fragmentDetalle.setArguments(bundle);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

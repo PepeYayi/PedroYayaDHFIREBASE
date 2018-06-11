@@ -76,7 +76,7 @@ public class FragmentDetalle extends Fragment {
             namePaintingDetalle.setText(cuadro.getNamePainting());
 
             //SETEO IMAGEN DE PINTIRA
-            Glide.with(context)
+            Glide.with(getActivity())
                     .using(new FirebaseImageLoader())
                     .load(reference.child(cuadro.getImage()))
                     .centerCrop()

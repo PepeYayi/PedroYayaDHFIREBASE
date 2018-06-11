@@ -9,9 +9,9 @@ public class Artista {
     private String Influenced_by;
     private String nameArtist;
     private String nationality;
-    private Integer artistId;
+    private String artistId;
 
-    public Artista(String influenced_by, String nameArtist, String nationality, Integer artistId) {
+    public Artista(String influenced_by, String nameArtist, String nationality, String artistId) {
 
         Influenced_by = influenced_by;
         this.nameArtist = nameArtist;
@@ -19,6 +19,9 @@ public class Artista {
         this.artistId = artistId;
     }
 
+    public Artista(){
+
+    }
     public String getInfluenced_by() {
         return Influenced_by;
     }
@@ -43,11 +46,11 @@ public class Artista {
         this.nationality = nationality;
     }
 
-    public Integer getArtistId() {
+    public String getArtistId() {
         return artistId;
     }
 
-    public void setArtistId(Integer artistId) {
+    public void setArtistId(String artistId) {
         this.artistId = artistId;
     }
 }
