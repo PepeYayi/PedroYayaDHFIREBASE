@@ -2,6 +2,7 @@ package com.usuario.pedroultimoentregable.DAO;
 
 import android.util.Log;
 
+import com.usuario.pedroultimoentregable.DAO.ServiceCuadro;
 import com.usuario.pedroultimoentregable.Model.ContenedorDeCuadros;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
 import com.usuario.pedroultimoentregable.Utils.ResultListener;

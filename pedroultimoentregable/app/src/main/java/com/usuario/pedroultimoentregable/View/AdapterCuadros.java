@@ -69,7 +69,7 @@ public class AdapterCuadros extends RecyclerView.Adapter {
     private class ViewHolderCuadros extends RecyclerView.ViewHolder {
         private ImageView imagen;
         private TextView nombreObra;
-        private TextView nombreArtista;
+
 
         private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();;
         private StorageReference reference =  firebaseStorage.getReference();
@@ -84,7 +84,7 @@ public class AdapterCuadros extends RecyclerView.Adapter {
             super(itemView);
             imagen = itemView.findViewById(R.id.imagenCelda);
             nombreObra = itemView.findViewById(R.id.nombreObra);
-            nombreArtista = itemView.findViewById(R.id.nombreArtista);
+
 
 
 
@@ -104,7 +104,7 @@ public class AdapterCuadros extends RecyclerView.Adapter {
 
 
             nombreObra.setText(cuadro.getNamePainting());
-            nombreArtista.setText(cuadro.getNameArtist());
+
             Glide.with(context)
                     .using(new FirebaseImageLoader())
                     .load(reference.child(cuadro.getImage()))

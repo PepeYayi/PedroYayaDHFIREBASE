@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 
+
 import com.example.usuario.pedroultimoentregable.R;
 import com.facebook.CallbackManager;
 
@@ -54,19 +55,12 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
 
         }
 
-        /*
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-*/
-
-        DAOfirebase daoInternet = new DAOfirebase();
 
 
-        Cuadro cuadro1 = new Cuadro("cuadro1", "alo","asasdas", "adsasd", "asdsad", "asdasd");
+      /*  DAOfirebase daoInternet = new DAOfirebase();
+        COMO ESCRIBIR Y LEER EN LA BASE
+
+        Cuadro cuadro1 = new Cuadro("cuadro1", "alo","asasdas" );
         Cuadro cuadro2 = new Cuadro("cuadro1", "alo","asasdas", "adsasd", "asdsad", "asdasd");
 
         daoInternet.escribirEnLaBase(cuadro1);
@@ -77,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
             public void finish(List<Cuadro> resultado) {
                 adapterCuadros.setListaDeCuadros(resultado);
             }
-        });
+        });*/
 
 
 
@@ -98,16 +92,13 @@ public class MainActivity extends AppCompatActivity implements AdapterCuadros.No
     @Override
     public void abrirDetalleCuadro(List<Cuadro> listaDeCuadros, Integer posicionCuadro) {
         Cuadro cuadro = listaDeCuadros.get(posicionCuadro);
-        String titulo = cuadro.getNamePainting();
-        String imagen = cuadro.getImage();
 
         Bundle bundle = new Bundle();
-        bundle.putString("titulo", titulo);
-        bundle.putString("descripcion", imagen);
+        bundle.putSerializable("CUADRO", cuadro);
 
         FragmentDetalle fragmentDetalle = new FragmentDetalle();
-        fragmentDetalle.setArguments(bundle);
-        // MANDAR EL OBJETO ENTERO PARA RECIBIRLO CON EL SERIALIZABLE DESDE EL FRAGMENT DETALLE
+
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.containerMainFragment, fragmentDetalle);

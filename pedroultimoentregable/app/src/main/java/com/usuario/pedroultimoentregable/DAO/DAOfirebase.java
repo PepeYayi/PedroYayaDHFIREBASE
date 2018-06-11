@@ -6,6 +6,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.usuario.pedroultimoentregable.Model.Artista;
 import com.usuario.pedroultimoentregable.Model.ContenedorDeCuadros;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
 import com.usuario.pedroultimoentregable.Utils.ResultListener;
@@ -23,7 +24,7 @@ import retrofit2.Retrofit;
 public class DAOfirebase {
 
         private FirebaseDatabase database;
-        public List<Cuadro> listaDeCuadrosInternet = new ArrayList<>();
+        public List<Artista> listaDeArtistasInternet = new ArrayList<>();
 
 
 
@@ -42,17 +43,17 @@ public class DAOfirebase {
 // push es solo para crear ids unicos. setValue es para escribir en la base.
 
  // El single es para leer una sola vez la base, y el otro es el valueeventlistener si aguien cambia algo se ejecuta.
-    public void leerDatabase(final ResultListener<List<Cuadro>> escuchadorDeLaVista){
+    public void leerDatabase(final ResultListener<List<Artista>> escuchadorDeLaVista){
         database.getReference().child("artists").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot jsonCuadro : dataSnapshot.getChildren()) {
-                    Cuadro c = jsonCuadro.getValue(Cuadro.class);
-                    listaDeCuadrosInternet.add(c);
-                    // creo lista en atributo y hago el add.
+                for (DataSnapshot jsonArtista : dataSnapshot.getChildren()) {
+                    Artista artista = jsonArtista.getValue(Artista.class);
+                    listaDeArtistasInternet.add(artista);
+
                 }
-                escuchadorDeLaVista.finish(listaDeCuadrosInternet);
+                escuchadorDeLaVista.finish(listaDeArtistasInternet);
             }
 
             @Override

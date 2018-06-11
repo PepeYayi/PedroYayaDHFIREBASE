@@ -1,6 +1,7 @@
 package com.usuario.pedroultimoentregable.View;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,8 +10,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.usuario.pedroultimoentregable.R;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.usuario.pedroultimoentregable.DAO.DAOfirebase;
+import com.usuario.pedroultimoentregable.Model.Artista;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
+import com.usuario.pedroultimoentregable.Utils.ResultListener;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -19,7 +31,8 @@ import com.usuario.pedroultimoentregable.Model.Cuadro;
 public class FragmentDetalle extends Fragment {
 
 
-    private static final String ID_CUADRO = "ID_CUADRO";
+    private static final String CUADRO = "ID_CUADRO";
+    private static final String ARTISTA = "ID_ARTISTA";
 
 
     private ImageView imagenDetalle;
@@ -27,8 +40,15 @@ public class FragmentDetalle extends Fragment {
     private TextView namePaintingDetalle;
     private TextView nacionalidadDetalle;
     private TextView influenciaDetalle;
-
+    private Context context;
+    private AdapterCuadros adapterCuadros;
+    private List<Artista> listaDeArtistas = new ArrayList<>();
     private Cuadro cuadro;
+    private Artista artista;
+
+    private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();;
+    private StorageReference reference =  firebaseStorage.getReference();
+
 
     public FragmentDetalle() {
         // Required empty public constructor
@@ -42,22 +62,38 @@ public class FragmentDetalle extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detalle, container, false);
 
         imagenDetalle = view.findViewById(R.id.imagenDetalle);
-        nameArtistDetalle = view.findViewById(R.id.nameArtistDetalle);
         namePaintingDetalle = view.findViewById(R.id.namePaintingDetalle);
+        nameArtistDetalle = view.findViewById(R.id.nameArtistDetalle);
         nacionalidadDetalle = view.findViewById(R.id.nacionalidadDetalle);
         influenciaDetalle = view.findViewById(R.id.influenciaDetalle);
 
         Bundle bundle = getArguments();
+        cuadro = (Cuadro) bundle.getSerializable("CUADRO");
 
 
 
-        cuadro = (Cuadro) bundle.getSerializable(ID_CUADRO);
+            //SETEO NOMBRE DE PINTURA
+            namePaintingDetalle.setText(cuadro.getNamePainting());
 
-        nameArtistDetalle.setText(cuadro.getNamePainting());
-        nacionalidadDetalle.setText(cuadro.getNationality());
-        influenciaDetalle.setText(cuadro.getInfluenced_by());
-        namePaintingDetalle.setText(cuadro.getNamePainting());
+            //SETEO IMAGEN DE PINTIRA
+            Glide.with(context)
+                    .using(new FirebaseImageLoader())
+                    .load(reference.child(cuadro.getImage()))
+                    .centerCrop()
+                    .into(imagenDetalle);
 
+
+        DAOfirebase daoInternet = new DAOfirebase();
+
+
+        daoInternet.leerDatabase(new ResultListener<List<Artista>>() {
+            @Override
+            public void finish(List<Artista> resultado) {
+                listaDeArtistas.addAll(resultado);
+            }
+        });
+
+        
 
 
         return view;
@@ -67,9 +103,11 @@ public class FragmentDetalle extends Fragment {
 
         FragmentDetalle fragmentDetalle = new FragmentDetalle();
         Bundle bundle = new Bundle();
-        bundle.putSerializable(ID_CUADRO, unCuadro);
+        bundle.putSerializable(CUADRO, unCuadro);
         fragmentDetalle.setArguments(bundle);
         return fragmentDetalle;
     }
+
+
 
 }
