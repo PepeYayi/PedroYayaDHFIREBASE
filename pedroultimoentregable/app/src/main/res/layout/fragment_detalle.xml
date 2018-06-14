@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/Negro"
     >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:orientation="vertical"
+
         android:gravity="center"
         android:layout_height="wrap_content">
 
@@ -16,7 +17,8 @@
 
    <ImageView
        android:layout_width="match_parent"
-       android:layout_height="100dp"
+       android:layout_height="300dp"
+       android:layout_gravity="center_horizontal"
        android:id="@+id/imagenDetalle"
        android:src="@drawable/ata"/>
 
@@ -26,11 +28,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/nameArtistDetalle"
-            android:text="Atahualpa Yupanqui"
+            android:text="Name"
             android:padding="10dp"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorNegro"
+            android:textColor="@color/colorGris"
             />
         <TextView
             android:layout_width="match_parent"
@@ -40,7 +42,7 @@
             android:padding="10dp"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorNegro"
+            android:textColor="@color/colorGris2"
             />
 
 
@@ -56,15 +58,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Nacionalidad: "
+                android:textColor="@color/colorBlanco"
                 android:textSize="20dp"
                 />
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:textSize="20dp"
+                android:textColor="@color/colorBlanco"
                 android:id="@+id/nacionalidadDetalle"
                 android:text="Argentina"
                 />
@@ -81,18 +85,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textColor="@color/colorBlanco"
                 android:text="Influencia: "
                 android:textSize="20dp"
                 />
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textColor="@color/colorBlanco"
                 android:textSize="20dp"
                 android:id="@+id/influenciaDetalle"
                 android:text="Argentina"
+                android:layout_marginBottom="30dp"
                 />
 
 

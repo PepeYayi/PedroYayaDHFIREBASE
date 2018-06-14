@@ -38,10 +38,10 @@
 
     <TextView
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/imagenCelda"
-            android:text="Atahualpa Yupanqui"
+            android:text="Nombre obra"
             android:layout_toRightOf="@+id/imagenCelda"
             android:textColor="@color/colorBlanco"
             android:layout_marginLeft="10dp"
@@ -50,9 +50,9 @@
 
     <TextView
             android:layout_marginTop="2dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cuadro pintado por el reconocido artista uruguayo Emilio Pancito Dulce"
+            android:text="Nombre artista"
             android:textColor="@color/colorGris2"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/imagenCelda"

@@ -44,7 +44,7 @@ public class FragmentDetalle extends Fragment {
     private AdapterCuadros adapterCuadros;
     private List<Artista> listaDeArtistas = new ArrayList<>();
     private Cuadro cuadro;
-    private Artista artista;
+
 
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();;
     private StorageReference reference =  firebaseStorage.getReference();
