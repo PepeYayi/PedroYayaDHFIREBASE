@@ -93,7 +93,17 @@ public class FragmentDetalle extends Fragment {
             }
         });
 
-        
+
+
+       // RECORRER LISTA DE ARTISTAS Y SETEAR NOMBRE DE ARTISTA, NACIONALIDAD E INFLUENCIA
+
+        for (Artista artista: listaDeArtistas) {
+            if (cuadro.getArtistId().equals(artista.getArtistId())){
+                nameArtistDetalle.setText(artista.getNameArtist());
+                nacionalidadDetalle.setText(artista.getNationality());
+                influenciaDetalle.setText(artista.getInfluenced_by());
+            }
+        }
 
 
         return view;

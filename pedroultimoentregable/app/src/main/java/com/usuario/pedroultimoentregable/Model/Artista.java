@@ -6,10 +6,10 @@ public class Artista {
 
 
     @SerializedName("Influenced_by")
-    private String Influenced_by;
-    private String nameArtist;
-    private String nationality;
-    private String artistId;
+        private String Influenced_by;
+        private String nameArtist;
+        private String nationality;
+        private String artistId;
 
     public Artista(String influenced_by, String nameArtist, String nationality, String artistId) {
 
