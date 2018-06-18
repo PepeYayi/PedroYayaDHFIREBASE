@@ -1,20 +1,18 @@
 package com.usuario.pedroultimoentregable.Model;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Artista {
 
 
-    @SerializedName("Influenced_by")
+
         private String Influenced_by;
-        private String nameArtist;
+        private String name;
         private String nationality;
         private String artistId;
 
-    public Artista(String influenced_by, String nameArtist, String nationality, String artistId) {
+    public Artista(String influenced_by, String name, String nationality, String artistId) {
 
         Influenced_by = influenced_by;
-        this.nameArtist = nameArtist;
+        this.name = name;
         this.nationality = nationality;
         this.artistId = artistId;
     }
@@ -30,12 +28,12 @@ public class Artista {
         Influenced_by = influenced_by;
     }
 
-    public String getNameArtist() {
-        return nameArtist;
+    public String getName() {
+        return name;
     }
 
-    public void setNameArtist(String nameArtist) {
-        this.nameArtist = nameArtist;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getNationality() {

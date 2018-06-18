@@ -19,8 +19,7 @@
        android:layout_width="match_parent"
        android:layout_height="300dp"
        android:layout_gravity="center_horizontal"
-       android:id="@+id/imagenDetalle"
-       android:src="@drawable/ata"/>
+       android:id="@+id/imagenDetalle" />
 
 
 
@@ -28,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/nameArtistDetalle"
-            android:text="Name"
             android:padding="10dp"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -38,7 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/namePaintingDetalle"
-            android:text="nombre de cuadro"
             android:padding="10dp"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -70,7 +67,6 @@
                 android:textSize="20dp"
                 android:textColor="@color/colorBlanco"
                 android:id="@+id/nacionalidadDetalle"
-                android:text="Argentina"
                 />
 
 
@@ -98,7 +94,6 @@
                 android:textColor="@color/colorBlanco"
                 android:textSize="20dp"
                 android:id="@+id/influenciaDetalle"
-                android:text="Argentina"
                 android:layout_marginBottom="30dp"
                 />
 

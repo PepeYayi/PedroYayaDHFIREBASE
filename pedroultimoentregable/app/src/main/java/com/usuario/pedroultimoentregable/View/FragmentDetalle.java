@@ -20,7 +20,6 @@ import com.usuario.pedroultimoentregable.Model.Artista;
 import com.usuario.pedroultimoentregable.Model.Cuadro;
 import com.usuario.pedroultimoentregable.Utils.ResultListener;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,7 @@ import java.util.List;
 public class FragmentDetalle extends Fragment {
 
 
-    private static final String CUADRO = "ID_CUADRO";
+    public static final String CUADRO = "ID_CUADRO";
     private static final String ARTISTA = "ID_ARTISTA";
 
 
@@ -46,8 +45,7 @@ public class FragmentDetalle extends Fragment {
     private Cuadro cuadro;
 
 
-    private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();;
-    private StorageReference reference =  firebaseStorage.getReference();
+    private FirebaseStorage firebaseStorage;
 
 
     public FragmentDetalle() {
@@ -61,6 +59,9 @@ public class FragmentDetalle extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_detalle, container, false);
 
+        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();;
+        StorageReference reference =  firebaseStorage.getReference();
+
         imagenDetalle = view.findViewById(R.id.imagenDetalle);
         namePaintingDetalle = view.findViewById(R.id.namePaintingDetalle);
         nameArtistDetalle = view.findViewById(R.id.nameArtistDetalle);
@@ -68,7 +69,7 @@ public class FragmentDetalle extends Fragment {
         influenciaDetalle = view.findViewById(R.id.influenciaDetalle);
 
         Bundle bundle = getArguments();
-        cuadro = (Cuadro) bundle.getSerializable("CUADRO");
+        cuadro = (Cuadro) bundle.getSerializable(CUADRO);
 
 
 
@@ -90,20 +91,21 @@ public class FragmentDetalle extends Fragment {
             @Override
             public void finish(List<Artista> resultado) {
                 listaDeArtistas.addAll(resultado);
+                // RECORRER LISTA DE ARTISTAS Y SETEAR NOMBRE DE ARTISTA, NACIONALIDAD E INFLUENCIA
+
+                for (Artista artista: listaDeArtistas) {
+                    if (cuadro.getArtistId().toString().equals(artista.getArtistId())){
+                        nameArtistDetalle.setText(artista.getName());
+                        nacionalidadDetalle.setText(artista.getNationality());
+                        influenciaDetalle.setText(artista.getInfluenced_by());
+                    }
+                }
             }
         });
 
 
 
-       // RECORRER LISTA DE ARTISTAS Y SETEAR NOMBRE DE ARTISTA, NACIONALIDAD E INFLUENCIA
 
-        for (Artista artista: listaDeArtistas) {
-            if (cuadro.getArtistId().equals(artista.getArtistId())){
-                nameArtistDetalle.setText(artista.getNameArtist());
-                nacionalidadDetalle.setText(artista.getNationality());
-                influenciaDetalle.setText(artista.getInfluenced_by());
-            }
-        }
 
 
         return view;
